@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width" ,initial-scale="1.0" />
+    <link href="TODO.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>To do list</h1>
+    <form onsubmit="add(event)">
+        <div class="formArea">
+            <div class="input-group">
+                <label>Enter your task here </label>
+                <input type="text" required id="task">
+                <br><br>
+            </div>
+
+            <div class="input-group">
+                <label>Enter the date </label>
+                <input type="date" required id="date">
+                <br><br>
+            </div>
+
+            <div class="button-area">
+                <button type="button" class="button">Add</button>
+            </div>
+        </div>
+
+        <ul id="task-list">
+
+        </ul>
+        <!-- <ul id="date-list">
+        </ul> -->
+
+
+    </form>
+
+    <script>
+        const toDolist = [];
+        // const toDolistDates=[];
+
+        function add(event) {
+            event.preventDefault();
+            let task = document.getElementById('task').value;
+            let date = document.getElementById('date').value
+            toDolist.push(task);
+            // toDolistDates.push(date);
+
+            document.getElementById('task-list').innerHTML = "";
+            // document.getElementById('date-list').innerHTML = "";
+
+
+            // for (let i = 0; i < toDolist.length; i++) {
+            //     document.getElementById("task-list").innerHTML += "<li>" + toDolist[i] + "</li>"
+            //     i++
+            // }
+
+            toDolist.forEach((value1) => {
+                document.getElementById('task-list').innerHTML += "<li>" + value1 + "</li>";
+            });
+
+            // toDolistDates.forEach((value2) => {
+            //     document.getElementById('date-list').innerHTML += "<li>" + value2 + "</li>";
+            // });
+            alert("Task added succesfully")
+        }
+
+
+
+    </script>
+</body>
+
+</html>
